@@ -10,15 +10,29 @@ import SocketIO
 
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
-    private var manager = SocketManager(socketURL: URL(string: "http://localhost:9000")!,
-                                        config: [.log(true), .compress])
+    private var manager = SocketManager(socketURL: URL(string: "http://10.202.213.236:3000")!,
+                                        config: [.log(true),
+                                                 .compress,
+                                                 .forceWebsockets(true)])
     private var socket: SocketIOClient!
 
     override init() {
         super.init()
-        socket = self.manager.socket(forNamespace: "/test")
+        socket = self.manager.defaultSocket
         socket.on("test") { dataArray, ack in
             print(dataArray)
+        }
+
+        socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
+
+        self.socket.on(clientEvent: .error) {data, ack in
+            print("error")
+        }
+
+        self.socket?.on(clientEvent: .disconnect){data, ack in
+            print("disconnect")
         }
     }
 
@@ -30,10 +44,7 @@ class SocketIOManager: NSObject {
         socket.disconnect()
     }
 
-    func sendMessage(message: String, nickname: String) {
-        socket.emit("event", ["message" : "This is a test message"])
-        socket.emit("event1", [["name" : "ns"], ["email" : "@naver.com"]])
-        socket.emit("event2", ["name" : "ns", "email" : "@naver.com"])
-        socket.emit("msg", ["nick": nickname, "msg" : message])
+    func sendMessage(message: String) {
+        socket.emit("chat message", message)
     }
 }

@@ -7,6 +7,6 @@ target 'BLESOCTEST' do
 
   pod 'SnapKit'
   pod 'Then'
-  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'Socket.IO-Client-Swift'
 
 end

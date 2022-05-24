@@ -12,6 +12,8 @@ class SocketClientViewController: UIViewController {
 
     private var textField: UITextField = {
         let textfield = UITextField()
+        textfield.placeholder = "message"
+        textfield.borderStyle = .roundedRect
         return textfield
     }()
 
@@ -38,6 +40,7 @@ class SocketClientViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(textField)
         view.addSubview(connectButton)
         view.addSubview(disconnectButton)
@@ -45,22 +48,24 @@ class SocketClientViewController: UIViewController {
 
         connectButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(200)
+            $0.top.equalToSuperview().offset(80)
         }
 
         disconnectButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(connectButton.snp.bottom).offset(100)
+            $0.top.equalTo(connectButton.snp.bottom).offset(50)
         }
 
         textField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(disconnectButton.snp.bottom).offset(150)
+            $0.width.equalTo(200)
+            $0.height.equalTo(100)
+            $0.top.equalTo(disconnectButton.snp.bottom).offset(50)
         }
 
         sendButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(textField.snp.bottom).offset(100)
+            $0.top.equalTo(textField.snp.bottom).offset(50)
         }
 
         connectButton.addTarget(self, action: #selector(connect(sender:)), for: .touchUpInside)
@@ -77,6 +82,7 @@ class SocketClientViewController: UIViewController {
     }
 
     @objc func send(sender: UIButton) {
-        SocketIOManager.shared.sendMessage(message: self.textField.text!, nickname: "ns")
+        SocketIOManager.shared.sendMessage(message: self.textField.text!)
+        self.textField.text = ""
     }
 }
