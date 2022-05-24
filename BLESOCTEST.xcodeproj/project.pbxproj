@@ -21,6 +21,9 @@
 		3174143B283B595700F335F2 /* PeripheralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3174143A283B595700F335F2 /* PeripheralViewController.swift */; };
 		3174143E283C6B6700F335F2 /* SocketClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3174143D283C6B6700F335F2 /* SocketClientViewController.swift */; };
 		31741440283C6ECA00F335F2 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3174143F283C6ECA00F335F2 /* SocketIOManager.swift */; };
+		31741442283CC94600F335F2 /* SocketConnectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741441283CC94600F335F2 /* SocketConnectable.swift */; };
+		31741444283CCCE000F335F2 /* WSHttpSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741443283CCCE000F335F2 /* WSHttpSocket.swift */; };
+		31741446283CCD0700F335F2 /* WSWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31741445283CCD0700F335F2 /* WSWebSocket.swift */; };
 		4B93E10F139E2A18CB183AAD /* Pods_BLESOCTEST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CF04219463F68D3438D68A /* Pods_BLESOCTEST.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		3174143A283B595700F335F2 /* PeripheralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewController.swift; sourceTree = "<group>"; };
 		3174143D283C6B6700F335F2 /* SocketClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketClientViewController.swift; sourceTree = "<group>"; };
 		3174143F283C6ECA00F335F2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		31741441283CC94600F335F2 /* SocketConnectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketConnectable.swift; sourceTree = "<group>"; };
+		31741443283CCCE000F335F2 /* WSHttpSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSHttpSocket.swift; sourceTree = "<group>"; };
+		31741445283CCD0700F335F2 /* WSWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSWebSocket.swift; sourceTree = "<group>"; };
 		31D187CE7521E2F3963E5C74 /* Pods-BLESOCTEST.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLESOCTEST.release.xcconfig"; path = "Target Support Files/Pods-BLESOCTEST/Pods-BLESOCTEST.release.xcconfig"; sourceTree = "<group>"; };
 		65F25BCF9BAC1CADE624C5B6 /* Pods-BLESOCTEST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLESOCTEST.debug.xcconfig"; path = "Target Support Files/Pods-BLESOCTEST/Pods-BLESOCTEST.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +124,9 @@
 			children = (
 				3174143F283C6ECA00F335F2 /* SocketIOManager.swift */,
 				3174143D283C6B6700F335F2 /* SocketClientViewController.swift */,
+				31741441283CC94600F335F2 /* SocketConnectable.swift */,
+				31741445283CCD0700F335F2 /* WSWebSocket.swift */,
+				31741443283CCCE000F335F2 /* WSHttpSocket.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -257,11 +266,14 @@
 				3174141E283B12A300F335F2 /* ViewController.swift in Sources */,
 				31741436283B410D00F335F2 /* Log.swift in Sources */,
 				31741434283B40DD00F335F2 /* Queue.swift in Sources */,
+				31741446283CCD0700F335F2 /* WSWebSocket.swift in Sources */,
 				3174141A283B12A300F335F2 /* AppDelegate.swift in Sources */,
 				3174143E283C6B6700F335F2 /* SocketClientViewController.swift in Sources */,
 				3174142F283B3D9600F335F2 /* BLECentralManager.swift in Sources */,
 				31741432283B40A500F335F2 /* BLEPeripheralManager.swift in Sources */,
+				31741444283CCCE000F335F2 /* WSHttpSocket.swift in Sources */,
 				31741439283B593800F335F2 /* CentralViewController.swift in Sources */,
+				31741442283CC94600F335F2 /* SocketConnectable.swift in Sources */,
 				3174143B283B595700F335F2 /* PeripheralViewController.swift in Sources */,
 				3174141C283B12A300F335F2 /* SceneDelegate.swift in Sources */,
 				31741440283C6ECA00F335F2 /* SocketIOManager.swift in Sources */,

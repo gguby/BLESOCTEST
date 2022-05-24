@@ -6,33 +6,26 @@
 //
 
 import Foundation
-import SocketIO
 
 class SocketIOManager: NSObject {
+
+    enum SocketType {
+        case web
+        case io
+    }
+
     static let shared = SocketIOManager()
-    private var manager = SocketManager(socketURL: URL(string: "http://10.202.213.236:3000")!,
-                                        config: [.log(true),
-                                                 .compress,
-                                                 .forceWebsockets(true)])
-    private var socket: SocketIOClient!
+
+    private var socketType: SocketType = .web
+    private var socket: SocketConnectable!
 
     override init() {
         super.init()
-        socket = self.manager.defaultSocket
-        socket.on("test") { dataArray, ack in
-            print(dataArray)
-        }
 
-        socket.on(clientEvent: .connect) {data, ack in
-            print("socket connected")
-        }
-
-        self.socket.on(clientEvent: .error) {data, ack in
-            print("error")
-        }
-
-        self.socket?.on(clientEvent: .disconnect){data, ack in
-            print("disconnect")
+        if socketType == .io {
+            socket = WSHttpSocket()
+        } else {
+            socket = WSWebSocket()
         }
     }
 
@@ -45,6 +38,6 @@ class SocketIOManager: NSObject {
     }
 
     func sendMessage(message: String) {
-        socket.emit("chat message", message)
+        socket.send(msg: message)
     }
 }

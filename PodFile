@@ -6,7 +6,7 @@ target 'BLESOCTEST' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Then'
   pod 'Socket.IO-Client-Swift'
+  pod 'Starscream'
 
 end
