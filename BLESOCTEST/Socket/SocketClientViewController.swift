@@ -82,7 +82,8 @@ class SocketClientViewController: UIViewController {
     }
 
     @objc func send(sender: UIButton) {
-        SocketIOManager.shared.sendMessage(message: self.textField.text!)
-        self.textField.text = ""
+        for i in 1...10 { 
+            SocketIOManager.shared.sendMessage(message: "\(i)")
+        }
     }
 }

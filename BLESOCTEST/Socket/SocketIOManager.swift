@@ -12,20 +12,24 @@ class SocketIOManager: NSObject {
     enum SocketType {
         case web
         case io
+        case udp
     }
 
     static let shared = SocketIOManager()
 
-    private var socketType: SocketType = .web
+    private var socketType: SocketType = .udp
     private var socket: SocketConnectable!
 
     override init() {
         super.init()
 
-        if socketType == .io {
-            socket = WSHttpSocket()
-        } else {
+        switch socketType {
+        case .web:
             socket = WSWebSocket()
+        case .io:
+            socket = WSHttpSocket()
+        case .udp:
+            socket = WSUDPSocket()
         }
     }
 
